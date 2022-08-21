@@ -7,7 +7,7 @@ pipeline {
         stage("build") {
             
             steps {
-                echo env.GIT_BRANCH
+                echo env.HUB_ORG_DH
             }
         }
 
