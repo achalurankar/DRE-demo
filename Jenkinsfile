@@ -7,7 +7,7 @@ pipeline {
         stage("build") {
             
             steps {
-                sfdx
+                git status
             }
         }
 
