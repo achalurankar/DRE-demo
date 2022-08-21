@@ -7,7 +7,7 @@ pipeline {
         stage("build") {
             
             steps {
-                echo env.HUB_ORG_DH
+                sfdx
             }
         }
 
