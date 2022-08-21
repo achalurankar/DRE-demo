@@ -7,7 +7,7 @@ pipeline {
         stage("build") {
             
             steps {
-                git status
+                sfdx force:source:deploy -x manifest/package.xml
             }
         }
 
