@@ -7,7 +7,7 @@ pipeline {
         stage("build") {
             
             steps {
-                sfdx force:source:deploy -x manifest/package.xml
+                bat 'sfdx force:source:deploy -x manifest/package.xml'
             }
         }
 
