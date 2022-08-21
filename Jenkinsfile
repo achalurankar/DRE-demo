@@ -7,7 +7,21 @@ pipeline {
         stage("build") {
             
             steps {
-                sh 'echo inside build stage'
+                echo 'inside build stage'
+            }
+        }
+
+        stage("test") {
+            
+            steps {
+                echo 'inside test stage'
+            }
+        }
+
+        stage("deploy") {
+            
+            steps {
+                echo 'inside deploy stage'
             }
         }
     }
