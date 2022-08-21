@@ -7,7 +7,7 @@ pipeline {
         stage("build") {
             
             steps {
-                echo 'inside build stage'
+                echo BRANCH_NAME
             }
         }
 
