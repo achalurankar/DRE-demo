@@ -8,6 +8,6 @@ public with sharing class DREDemoClass {
     }
 
     public void method2() {
-        System.debug('method 1');
+        System.debug('method 2');
     }
 }
