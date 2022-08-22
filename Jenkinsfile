@@ -1,28 +1,25 @@
 node {
 
     // def toolbelt = tool 'toolbelt'
-
-    stages {
+  
+    stage("build") {
         
-        stage("build") {
-            
-            steps {
-                bat "git"
-            }
+        steps {
+            bat "git"
         }
+    }
 
-        stage("test") {
-            
-            steps {
-                echo 'inside test stage'
-            }
+    stage("test") {
+        
+        steps {
+            echo 'inside test stage'
         }
+    }
 
-        stage("deploy") {
-            
-            steps {
-                echo 'inside deploy stage'
-            }
+    stage("deploy") {
+        
+        steps {
+            echo 'inside deploy stage'
         }
     }
 }
