@@ -1,9 +1,6 @@
-def toolbelt = tool 'toolbelt'
-
-pipeline {
-
-    agent any
-    
+node {
+    def toolbelt = tool 'toolbelt'
+        
     stages {
         
         stage("build") {
