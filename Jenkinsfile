@@ -1,8 +1,8 @@
+def toolbelt = tool 'toolbelt'
+
 pipeline {
 
     agent any
-
-    def toolbelt = tool 'toolbelt'
     
     stages {
         
