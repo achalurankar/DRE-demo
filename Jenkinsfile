@@ -2,12 +2,14 @@ pipeline {
 
     agent any
 
+    def toolbelt = tool 'toolbelt'
+    
     stages {
         
         stage("build") {
             
             steps {
-                bat 'sfdx force:source:deploy -x manifest/package.xml'
+                bat "${toolbelt}/sfdx"
             }
         }
 
