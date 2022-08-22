@@ -6,7 +6,7 @@ node {
     }
 
     stage("build") {
-        command "git"
+        echo "inside build stage"
     }
 
     stage("test") {
