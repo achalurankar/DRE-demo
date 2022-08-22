@@ -7,7 +7,7 @@ node {
     }
 
     stage("build") {
-        command "${sfdx}/sfdx"
+        bat "${sfdx}/sfdx"
     }
 
     stage("test") {
