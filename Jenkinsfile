@@ -7,15 +7,16 @@ node {
         checkout scm
     }
 
-    stage("build") {
-        echo HUB_ORG_DH
+    stage("Authorize Dev Hub") {
+        command "echo ${HUB_ORG_DH}"
     }
 
-    stage("test") {
-        echo 'inside test stage'
-    }
+}
 
-    stage("deploy") {
-        echo 'inside deploy stage'
+def command(script) {
+    if (isUnix()) {
+        return sh(returnStatus: true, script: script);
+    } else {
+        return bat(returnStatus: true, script: script);
     }
 }
