@@ -1,13 +1,14 @@
 node {
 
     def sfdx = tool 'sfdx'
+    def HUB_ORG_DH = env.HUB_ORG_DH
 
     stage('checkout source') {
         checkout scm
     }
 
     stage("build") {
-        echo env.HUB_ORG_DH
+        echo HUB_ORG_DH
     }
 
     stage("test") {
