@@ -1,13 +1,13 @@
 node {
 
     // def toolbelt = tool 'toolbelt'
-    
+
     stage('checkout source') {
         checkout scm
     }
 
     stage("build") {
-        echo "inside build stage"
+        bat "sfdx"
     }
 
     stage("test") {
