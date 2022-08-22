@@ -1,4 +1,5 @@
 node {
+
     def toolbelt = tool 'toolbelt'
 
     stages {
@@ -6,7 +7,7 @@ node {
         stage("build") {
             
             steps {
-                bat "${toolbelt}/sfdx"
+                bat "git"
             }
         }
 
