@@ -3,7 +3,7 @@ node {
     // def toolbelt = tool 'toolbelt'
   
     stage("build") {
-        bat "git"
+        git
     }
 
     stage("test") {
