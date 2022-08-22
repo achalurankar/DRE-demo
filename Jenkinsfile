@@ -1,6 +1,6 @@
 node {
     def toolbelt = tool 'toolbelt'
-        
+
     stages {
         
         stage("build") {
