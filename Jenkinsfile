@@ -7,7 +7,7 @@ node {
     }
 
     stage("build") {
-        bat "${sfdx}/sfdx"
+        echo env.HUB_ORG_DH
     }
 
     stage("test") {
