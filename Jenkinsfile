@@ -26,7 +26,7 @@ node {
             stage("Deployment") {
                 rc = command "${sfdx} force:source:deploy --targetusername HubOrg -x manifest/package.xml"
                 if (rc != 0) {
-                    error 'Salesforce dev hub org authorization failed.'
+                    error 'Salesforce dev hub org deployment failed.'
                 }
             }
         }
