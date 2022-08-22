@@ -22,6 +22,13 @@ node {
                     error 'Salesforce dev hub org authorization failed.'
                 }
             }
+
+            stage("Deployment") {
+                rc = command "${sfdx} force:source:deploy -x manifest/package.xml"
+                if (rc != 0) {
+                    error 'Salesforce dev hub org authorization failed.'
+                }
+            }
         }
     }
 
