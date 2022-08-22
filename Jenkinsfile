@@ -7,7 +7,8 @@ node {
     def PACKAGE_VERSION
     def SF_USERNAME="achal_urankar@creative-unicorn-5aycwj.com"
     def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://login.salesforce.com"
-
+    def sfdxLoc = tool 'sfdxLoc'
+    
     stage('checkout source') {
         checkout scm
     }
@@ -15,7 +16,7 @@ node {
     withEnv(["HOME=${env.WORKSPACE}"]) { 
         withCredentials([file(credentialsId: SERVER_KEY_CREDENTALS_ID, variable: 'server_key_file')]) {
             stage("Authorize Dev Hub") {
-                rc = command "sfdx auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${server_key_file} --setdefaultdevhubusername --setalias HubOrg"
+                rc = command "\"${sfdxLoc}/sfdx\" auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${server_key_file} --setdefaultdevhubusername --setalias HubOrg"
                 if (rc != 0) {
                     error 'Salesforce dev hub org authorization failed.'
                 }
