@@ -18,14 +18,14 @@ node {
             stage("Authorize Dev Hub") {
                 rc = command "${sfdx} auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile \"${server_key_file}\" --setdefaultdevhubusername --setalias HubOrg"
                 if (rc != 0) {
-                    error 'Salesforce dev hub org authorization failed.'
+                    error 'org authorization failed.'
                 }
             }
 
             stage("Deployment") {
                 rc = command "${sfdx} force:source:deploy --targetusername HubOrg -x manifest/package.xml"
                 if (rc != 0) {
-                    error 'Salesforce dev hub org deployment failed.'
+                    error 'org deployment failed.'
                 }
             }
         }
