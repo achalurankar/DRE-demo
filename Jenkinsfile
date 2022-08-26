@@ -9,13 +9,13 @@ node {
     def sfdxLoc = tool 'sfdxLoc'
     def sfdx = "\"${sfdxLoc}/sfdx\""
 
-    stage('checkout source') {
+    stage('Checkout Source') {
         checkout scm
     }
 
-    withEnv(["HOME=${env.WORKSPACE}"]) { 
+    withEnv(["HOME=${env.WORKSPACE}"]) {
         withCredentials([file(credentialsId: SERVER_KEY_CREDENTALS_ID, variable: 'server_key_file')]) {
-            stage("Authorize Dev Hub") {
+            stage("Authorize Org") {
                 rc = command "${sfdx} auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile \"${server_key_file}\" --setdefaultdevhubusername --setalias HubOrg"
                 if (rc != 0) {
                     error 'org authorization failed.'
