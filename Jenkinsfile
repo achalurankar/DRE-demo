@@ -11,7 +11,7 @@ node {
 
     stage('Checkout Source') {
         br = checkout scm
-        print(${br})
+        print("branch ${br}")
     }
 
     withEnv(["HOME=${env.WORKSPACE}"]) {
