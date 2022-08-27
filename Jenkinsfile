@@ -24,7 +24,7 @@ node {
             }
 
             stage("Deployment") {
-                rc = command "${sfdx} force:source:deploy --targetusername HubOrg -x manifest/package.xml"
+                rc = command "${sfdx} force:source:deploy --checkonly --targetusername HubOrg -x manifest/package.xml"
                 if (rc != 0) {
                     error 'org deployment failed.'
                 }
