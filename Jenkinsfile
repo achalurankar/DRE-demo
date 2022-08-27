@@ -10,7 +10,8 @@ node {
     def sfdx = "\"${sfdxLoc}/sfdx\""
 
     stage('Checkout Source') {
-        checkout scm
+        br = checkout scm
+        print(${br})
     }
 
     withEnv(["HOME=${env.WORKSPACE}"]) {
