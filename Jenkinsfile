@@ -10,7 +10,7 @@ node {
     def sfdx = "\"${sfdxLoc}/sfdx\""
 
     stage('Checkout Source') {
-        br = checkout scm
+        br2 = checkout scm
         print("branch ${br}")
     }
 
